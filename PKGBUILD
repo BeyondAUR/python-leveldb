@@ -11,9 +11,11 @@ depends=('python')
 makedepends=('git' 'python-build' 'python-installer' 'python-setuptools' 'python-wheel')
 checkdepends=('python-nose')
 source=("git+https://github.com/rjpower/py-leveldb.git#tag=${pkgver}"
-        'git+https://github.com/google/leveldb.git')
-sha256sums=('SKIP'
-            'SKIP')
+        'git+https://github.com/google/leveldb.git'
+        '010-python-leveldb-replace-deprecated-unicode-api.patch'::'https://github.com/rjpower/py-leveldb/pull/13.patch')
+sha256sums=('118c1e275891a41832aebc16a3eb22d946b337e555c8e92b877957df4c153534'
+            'SKIP'
+            'd65bd3b20e0ea7e637337e07212d828a0438b2b1e9b7c54c9936de13b58dba2c')
 
 prepare() {
     git -C py-leveldb submodule init
