@@ -21,6 +21,8 @@ prepare() {
     git -C py-leveldb submodule init
     git -C py-leveldb config --local submodule.leveldb.url "${srcdir}/leveldb"
     git -C py-leveldb -c protocol.file.allow='always' submodule update
+
+    patch -d py-leveldb -Np1 -i "${srcdir}/010-python-leveldb-replace-deprecated-unicode-api.patch"
 }
 
 build() {
